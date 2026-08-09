@@ -1,0 +1,230 @@
+.media-search-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(15, 23, 42, 0.46);
+  backdrop-filter: blur(8px);
+}
+
+.media-search-panel {
+  width: min(820px, 100%);
+  max-height: min(760px, calc(100vh - 36px));
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto auto auto minmax(0, 1fr);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 26px 80px rgba(15, 23, 42, 0.34);
+  color: #111827;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.media-search-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.media-search-head div {
+  flex: 1;
+  min-width: 0;
+}
+
+.media-search-head p {
+  margin: 0 0 3px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.media-search-head h2 {
+  margin: 0;
+  color: #0f172a;
+  font-family: "Lilita One", "Arial Black", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.media-search-close {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.media-search-close:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.media-search-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px;
+  gap: 8px;
+  padding: 14px 20px 10px;
+}
+
+.media-search-form input {
+  min-width: 0;
+  height: 46px;
+  border: 2px solid #e8edf4;
+  border-radius: 12px;
+  background: #fbfcfe;
+  color: #111827;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0 14px;
+  outline: none;
+}
+
+.media-search-form input:focus {
+  border-color: #16a1ff;
+  box-shadow: 0 0 0 4px rgba(22, 161, 255, 0.14);
+}
+
+.media-search-form button {
+  border: 0;
+  border-radius: 12px;
+  background: #111827;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.media-search-form svg {
+  width: 20px;
+  height: 20px;
+}
+
+.media-search-tabs {
+  display: flex;
+  gap: 5px;
+  width: fit-content;
+  margin: 0 20px 12px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #eef2f7;
+}
+
+.media-search-tabs button {
+  min-width: 82px;
+  min-height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #64748b;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.media-search-tabs button.selected {
+  background: #fff;
+  color: #0b74c4;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.14);
+}
+
+.media-search-results {
+  min-height: 300px;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  align-content: start;
+  gap: 10px;
+  padding: 0 20px 20px;
+}
+
+.media-search-result {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e8edf4;
+  border-radius: 10px;
+  background: #fff;
+  color: #334155;
+  display: grid;
+  gap: 7px;
+  padding: 6px;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.14s ease, border-color 0.14s ease, box-shadow 0.14s ease;
+}
+
+.media-search-result:hover {
+  transform: translateY(-2px);
+  border-color: #16a1ff;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+}
+
+.media-search-result img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 7px;
+  background: #f1f5f9;
+}
+
+.media-search-result span {
+  min-height: 32px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.media-search-message {
+  grid-column: 1 / -1;
+  margin: 34px 0;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.media-search-message.error {
+  color: #b91c1c;
+}
+
+@media (max-width: 560px) {
+  .media-search-panel {
+    max-height: calc(100vh - 24px);
+  }
+
+  .media-search-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0 14px 14px;
+  }
+
+  .media-search-head,
+  .media-search-form {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .media-search-tabs {
+    margin-left: 14px;
+  }
+}

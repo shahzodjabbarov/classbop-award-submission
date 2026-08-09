@@ -1,0 +1,197 @@
+.menu-card {
+  --menu-card-accent: #8b5cf6;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.833;
+  box-sizing: border-box;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 4px solid var(--menu-card-accent);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.14);
+  color: #122041;
+  cursor: pointer;
+  appearance: none;
+  padding: 3px;
+  text-align: left;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-card:hover:not(:disabled),
+.menu-card:focus-visible:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 28px rgba(15, 23, 42, 0.18);
+  outline: none;
+}
+
+.menu-card:disabled {
+  cursor: default;
+  filter: saturate(0.82);
+  box-shadow: 0 7px 16px rgba(15, 23, 42, 0.1);
+}
+
+.menu-card:disabled .menu-card-image {
+  opacity: 0.74;
+}
+
+.menu-card:disabled .menu-card-arrow {
+  background: #9ca3af;
+  box-shadow: 0 3px 0 #4b5563;
+}
+
+.menu-card-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+  max-width: calc(100% - 28px);
+  padding: 7px 10px;
+  border: 2px solid #111827;
+  border-radius: 999px;
+  background: #ffeb00;
+  color: #111827;
+  box-shadow: 2px 2px 0 #111827;
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.menu-card-media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--menu-card-accent) 18%, #ffffff 82%);
+}
+
+.menu-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.36s ease;
+}
+
+.menu-card:hover:not(:disabled) .menu-card-image,
+.menu-card:focus-visible:not(:disabled) .menu-card-image {
+  transform: scale(1.035);
+}
+
+.menu-card-copy {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 13px 12px 6px;
+}
+
+.menu-card-title {
+  display: block;
+  margin: 0 0 7px;
+  color: #142346;
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-size: clamp(18px, 1.85vw, 28px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(20, 35, 70, 0.12);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.menu-card-description {
+  display: -webkit-box;
+  flex: 0 1 auto;
+  min-height: 0;
+  margin: 0;
+  color: #111827;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.32;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.menu-card-footer {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 0;
+  transform: translateY(3px);
+}
+
+.menu-card-meta {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #122041;
+  font-size: 9px;
+  font-weight: 850;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.menu-card-meta > span:last-child {
+  display: inline-block;
+  transform: translateY(3px);
+}
+
+.menu-card-star {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  display: inline-grid;
+  place-items: center;
+  transform: translateY(1px);
+  color: var(--menu-card-accent);
+  font-size: 17px;
+  line-height: 0;
+  text-shadow: 1px 1px 0 rgba(17, 24, 39, 0.2);
+}
+
+.menu-card-arrow {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  transform: translate(6px, -5px);
+  border-radius: 50%;
+  background: var(--menu-card-accent);
+  color: #ffffff;
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--menu-card-accent) 70%, #111827 30%);
+  font-size: 24px;
+  font-weight: 950;
+  line-height: 1;
+}
+
+@media (max-width: 680px) {
+  .menu-card {
+    aspect-ratio: auto;
+  }
+
+  .menu-card-copy {
+    padding: 18px 16px 7px;
+  }
+
+  .menu-card-description {
+    font-size: 10.5px;
+  }
+}

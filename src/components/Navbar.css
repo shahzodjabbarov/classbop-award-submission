@@ -1,0 +1,50 @@
+/* Navbar interaction styles. These used to live in Landing.css under
+   `.landing-navbar-*`, which meant they only loaded on the landing route; the
+   navbar is now one design everywhere, so they belong with the component. */
+.bop-nav-logo,
+.bop-nav-tab,
+.bop-nav-login,
+.bop-nav-language {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, filter 180ms ease;
+}
+
+/* Keyboard focus ring. Kept thinner than the landing page's 3px original: on
+   the compact bar a 3px halo around the active pill read as a stuck border. */
+.bop-nav-logo:focus-visible,
+.bop-nav-tab:focus-visible,
+.bop-nav-login:focus-visible,
+.bop-nav-language:focus-within {
+  outline: 2px solid rgba(31, 120, 242, 0.6);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .bop-nav-logo:hover {
+    transform: translateY(-2px);
+  }
+
+  .bop-nav-tab:hover {
+    background-color: rgba(255, 255, 255, 0.62) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .bop-nav-login:hover {
+    box-shadow: 0 13px 24px rgba(30, 111, 235, 0.34), inset 0 -2px 0 rgba(0, 40, 110, 0.16) !important;
+    filter: saturate(1.05);
+    transform: translateY(-2px);
+  }
+
+  .bop-nav-language:hover {
+    box-shadow: 0 10px 20px rgba(23, 31, 56, 0.17), inset 0 0 0 1px rgba(15, 23, 42, 0.08) !important;
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bop-nav-logo,
+  .bop-nav-tab,
+  .bop-nav-login,
+  .bop-nav-language {
+    transition: none;
+  }
+}

@@ -1,0 +1,563 @@
+/* Shared creator-studio treatment. The cream-and-blob backdrop is supplied by
+   App.jsx; this layer keeps every game editor in the same soft Classbop UI. */
+.creator-page {
+  --creator-ink: #101b4c;
+  --creator-muted: #66708e;
+  --creator-accent: #6d4fe3;
+  --creator-accent-soft: #f1ecfe;
+  --creator-yellow: #ffc93c;
+  --creator-line: #ebe7dc;
+  --creator-card: rgba(255, 255, 255, 0.94);
+  --creator-shadow: 0 12px 32px rgba(20, 30, 70, 0.09);
+
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: calc(100vh - 62px);
+  padding: 28px clamp(16px, 3vw, 38px) 80px;
+  box-sizing: border-box;
+  color: var(--creator-ink);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.creator-header {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.45fr) minmax(0, 1fr) minmax(180px, 0.55fr);
+  align-items: center;
+  gap: 18px;
+  min-height: 88px;
+  border: 1px solid var(--creator-line);
+  border-radius: 22px;
+  background: var(--creator-card);
+  box-shadow: var(--creator-shadow);
+  padding: 16px 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.creator-header-copy {
+  min-width: 0;
+  text-align: center;
+}
+
+.creator-header-copy p,
+.creator-section-heading p {
+  margin: 0 0 4px;
+  color: var(--creator-accent);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.creator-header-copy h1,
+.creator-section-heading h2 {
+  margin: 0;
+  color: var(--creator-ink);
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.creator-header-copy h1 { font-size: clamp(30px, 4vw, 42px); }
+.creator-section-heading h2 { font-size: clamp(24px, 2.4vw, 31px); }
+
+.creator-back,
+.creator-save {
+  min-height: 46px;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 850;
+  cursor: pointer;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.creator-back {
+  justify-self: start;
+  background: #f3f5f9;
+  color: #3f4b6d;
+  padding: 0 18px;
+}
+
+.creator-back:hover { background: #e9edf5; color: var(--creator-ink); }
+
+.creator-save {
+  justify-self: end;
+  min-width: 190px;
+  background: linear-gradient(180deg, #ffd95d 0%, var(--creator-yellow) 100%);
+  color: #3c2a00;
+  box-shadow: 0 5px 0 #e5a916, 0 12px 24px rgba(190, 128, 0, 0.2);
+  padding: 0 26px;
+}
+
+.creator-save:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #e5a916, 0 16px 28px rgba(190, 128, 0, 0.24);
+}
+
+.creator-save:disabled,
+.creator-remove:disabled { cursor: not-allowed; opacity: 0.42; }
+
+.creator-panel,
+.creator-card,
+.creator-section-heading,
+.creator-footer {
+  border: 1px solid var(--creator-line);
+  background: var(--creator-card);
+  box-shadow: var(--creator-shadow);
+}
+
+.creator-panel { border-radius: 22px; }
+.creator-card { border-radius: 20px; }
+
+.creator-field {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.creator-field > span {
+  color: var(--creator-muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.creator-field input,
+.creator-field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  border: 1px solid #dfe3ec;
+  border-radius: 13px;
+  background: #fbfcfe;
+  color: var(--creator-ink);
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  outline: none;
+  padding: 0 14px;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.creator-field input:focus,
+.creator-field select:focus {
+  border-color: var(--creator-accent);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(109, 79, 227, 0.12);
+}
+
+.creator-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-radius: 18px;
+  padding: 15px 18px;
+}
+
+.creator-section-heading > span,
+.creator-card-number {
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #8065ed, #6544dc);
+  color: #fff;
+  box-shadow: 0 5px 12px rgba(109, 79, 227, 0.24);
+  font-weight: 900;
+}
+
+.creator-section-heading > span { width: 42px; height: 42px; }
+
+.creator-card-number {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  min-width: 31px;
+  height: 31px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.creator-remove {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #9aa3b7;
+  box-shadow: 0 3px 10px rgba(20, 30, 70, 0.12);
+  font: inherit;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.creator-remove:hover:not(:disabled) { background: #feecef; color: #d9365f; }
+
+.creator-add-card {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  min-height: 320px;
+  border: 2px dashed #d6d5e1;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.58);
+  color: #596482;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+
+.creator-add-card > span {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--creator-accent-soft);
+  color: var(--creator-accent);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.creator-add-card strong {
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.creator-add-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--creator-accent);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--creator-accent);
+}
+
+.creator-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-radius: 20px;
+  padding: 16px 18px;
+}
+
+.creator-footer p { margin: 0; color: var(--creator-muted); font-size: 13px; font-weight: 800; }
+
+/* Guess The Price creator */
+.gtp-builder-shell {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+}
+
+.gtp-builder-settings {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 22px;
+  width: min(860px, 100%);
+  margin: 0 auto;
+  padding: 22px;
+}
+
+.gtp-builder-thumbnail {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  border: 2px dashed #d8d7e4;
+  border-radius: 16px;
+  background: #f8f7fc;
+  color: var(--creator-accent);
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.gtp-builder-thumbnail:hover { border-color: var(--creator-accent); background: var(--creator-accent-soft); }
+.gtp-builder-thumbnail > span { font-size: 36px; }
+.gtp-builder-thumbnail img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gtp-builder-thumbnail input,
+.gtp-builder-media input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+
+.gtp-builder-settings-fields { display: grid; gap: 16px; align-content: center; }
+.gtp-builder-items-section { display: grid; gap: 16px; }
+
+.gtp-builder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.gtp-builder-card { position: relative; overflow: hidden; }
+
+.gtp-builder-media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--creator-line);
+  background: linear-gradient(145deg, #f7f6fb, #f1eef9);
+  color: var(--creator-muted);
+  cursor: pointer;
+}
+
+.gtp-builder-media > span { display: grid; justify-items: center; gap: 7px; font-size: 11px; font-weight: 900; letter-spacing: 0.08em; }
+.gtp-builder-media > span b { font-size: 34px; }
+.gtp-builder-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gtp-builder-media:not(.has-image):hover { background: var(--creator-accent-soft); color: var(--creator-accent); }
+
+.gtp-builder-card-fields { display: grid; gap: 13px; padding: 17px; }
+.gtp-builder-price-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.creator-field--price > span { color: #b33a60; }
+.creator-field--price input { border-color: #f0c7d4; background: #fff8fa; }
+
+/* Existing editors: align their headers, cards and controls to the same system. */
+.creator-page.quiz-builder-page { padding: 28px clamp(16px, 3vw, 38px) 80px; }
+
+.creator-page .quiz-builder-header,
+.creator-page.feud-builder-page .feud-builder-header,
+.pictionary-creator-page .pictionary-compact-header {
+  border: 1px solid var(--creator-line);
+  border-radius: 22px;
+  background: var(--creator-card);
+  box-shadow: var(--creator-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.creator-page .quiz-builder-header h1,
+.creator-page.feud-builder-page .feud-builder-header h1,
+.pictionary-creator-page .pictionary-compact-header h1 {
+  color: var(--creator-ink);
+  text-shadow: none;
+}
+
+.creator-page .quiz-builder-kicker,
+.creator-page.feud-builder-page .feud-builder-kicker,
+.pictionary-creator-page .pictionary-kicker { color: var(--creator-accent); }
+
+.creator-page .quiz-builder-back,
+.creator-page.feud-builder-page .feud-builder-header .feud-back,
+.pictionary-creator-page .pictionary-back-link {
+  border: 0;
+  border-radius: 999px;
+  background: #f3f5f9;
+  color: #3f4b6d;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 850;
+  padding: 11px 18px;
+}
+
+.creator-page .quiz-builder-back:hover,
+.creator-page.feud-builder-page .feud-builder-header .feud-back:hover,
+.pictionary-creator-page .pictionary-back-link:hover {
+  transform: none;
+  background: #e9edf5;
+  color: var(--creator-ink);
+  box-shadow: none;
+}
+
+.creator-page .quiz-builder-panel,
+.creator-page .quiz-builder-questions-head,
+.creator-page .quiz-builder-card,
+.creator-page.feud-builder-page .feud-panel,
+.creator-page.feud-builder-page .feud-rounds-head,
+.creator-page.feud-builder-page .feud-round-card,
+.pictionary-creator-page .pictionary-builder-panel,
+.bingo-custom-builder {
+  border: 1px solid var(--creator-line);
+  background: var(--creator-card);
+  box-shadow: var(--creator-shadow);
+}
+
+.creator-page .quiz-builder-num,
+.creator-page.feud-builder-page .feud-round-num {
+  border: 0;
+  background: linear-gradient(180deg, #8065ed, #6544dc);
+  color: #fff;
+  box-shadow: 0 5px 12px rgba(109, 79, 227, 0.24);
+}
+
+.creator-page .quiz-builder-field input:focus,
+.creator-page .quiz-builder-card input:focus,
+.creator-page .quiz-builder-card textarea:focus,
+.creator-page.feud-builder-page input:focus,
+.creator-page.feud-builder-page textarea:focus,
+.pictionary-creator-page input:focus {
+  border-color: var(--creator-accent);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(109, 79, 227, 0.12);
+  outline: none;
+}
+
+/* Class Feud used the oldest heavy-outline editor. These overrides preserve
+   its structure while giving it the same soft, high-clarity studio finish. */
+.creator-page.feud-builder-page {
+  width: min(1060px, 100%);
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.creator-page.feud-builder-page .feud-builder-header {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.45fr) minmax(0, 1fr) minmax(170px, 0.5fr);
+  min-height: 88px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+}
+
+.creator-page.feud-builder-page .feud-builder-header > div { text-align: center; }
+.creator-page.feud-builder-page .feud-builder-header h1 { font-size: clamp(28px, 3.4vw, 38px); }
+
+.creator-page.feud-builder-page .feud-primary-button {
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffd95d, var(--creator-yellow));
+  color: #3c2a00;
+  box-shadow: 0 5px 0 #e5a916, 0 12px 24px rgba(190, 128, 0, 0.2);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.creator-page.feud-builder-page .feud-primary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #e5a916, 0 16px 28px rgba(190, 128, 0, 0.24);
+}
+
+.creator-page.feud-builder-page .feud-panel { border-radius: 22px; box-shadow: var(--creator-shadow); }
+.creator-page.feud-builder-page .feud-rounds-head { border-radius: 18px; padding: 15px 18px; }
+.creator-page.feud-builder-page .feud-round-card { border-radius: 20px; padding: 17px; }
+
+.creator-page.feud-builder-page .feud-thumb-empty,
+.creator-page.feud-builder-page .feud-thumb-preview,
+.creator-page.feud-builder-page .feud-builder-media,
+.creator-page.feud-builder-page .feud-field input[type="text"],
+.creator-page.feud-builder-page .feud-field > input,
+.creator-page.feud-builder-page .feud-tag-box,
+.creator-page.feud-builder-page .feud-prompt-input,
+.creator-page.feud-builder-page .feud-answer-row input,
+.creator-page.feud-builder-page .feud-answer-rank,
+.creator-page.feud-builder-page .feud-answer-drop {
+  border: 1px solid #dfe3ec;
+  box-shadow: none;
+}
+
+.creator-page.feud-builder-page .feud-thumb-empty,
+.creator-page.feud-builder-page .feud-builder-media:not(.has-image) { border-style: dashed; background: #f8f7fc; }
+.creator-page.feud-builder-page .feud-media-search { border: 0; border-radius: 50%; background: var(--creator-accent); color: #fff; box-shadow: 0 5px 12px rgba(109, 79, 227, 0.25); }
+.creator-page.feud-builder-page .feud-badge { border: 0; background: #f0f2f6; color: #7a849c; }
+.creator-page.feud-builder-page .feud-visibility-toggle { gap: 5px; padding: 4px; border-radius: 999px; background: #eef0f5; }
+.creator-page.feud-builder-page .feud-visibility-toggle button { border: 0; border-radius: 999px; background: transparent; box-shadow: none; font-family: inherit; font-size: 13px; font-weight: 850; color: #66708e; }
+.creator-page.feud-builder-page .feud-visibility-toggle button.selected { background: #fff; color: var(--creator-accent); box-shadow: 0 2px 7px rgba(20, 30, 70, 0.12); }
+.creator-page.feud-builder-page .feud-tag-chip { border: 0; background: var(--creator-accent-soft); color: var(--creator-accent); }
+.creator-page.feud-builder-page .feud-tag-suggestions button { border: 1px solid #dfe3ec; color: #66708e; }
+.creator-page.feud-builder-page .feud-answer-rank { background: var(--creator-accent-soft); color: var(--creator-accent); }
+.creator-page.feud-builder-page .feud-round-remove,
+.creator-page.feud-builder-page .feud-answer-drop { border: 0; background: #f3f5f9; color: #8892a8; box-shadow: none; }
+.creator-page.feud-builder-page .feud-add-answer,
+.creator-page.feud-builder-page .feud-add-round { border: 2px dashed #d6d5e1; background: rgba(255, 255, 255, 0.62); color: #596482; box-shadow: none; }
+.creator-page.feud-builder-page .feud-add-answer:hover:not(:disabled),
+.creator-page.feud-builder-page .feud-add-round:hover:not(:disabled) { border-color: var(--creator-accent); color: var(--creator-accent); background: #fff; }
+.creator-page.feud-builder-page .feud-builder-footer { border: 1px solid var(--creator-line); border-radius: 20px; background: var(--creator-card); box-shadow: var(--creator-shadow); padding: 16px 18px; }
+
+/* Pictionary creator */
+.pictionary-creator-page { --creator-ink: #101b4c; --creator-muted: #66708e; --creator-accent: #6d4fe3; --creator-line: #ebe7dc; --creator-card: rgba(255, 255, 255, 0.94); --creator-shadow: 0 12px 32px rgba(20, 30, 70, 0.09); }
+
+.pictionary-creator-page .pictionary-compact-header {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr) 160px;
+  align-items: center;
+  min-height: 88px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+}
+
+.pictionary-creator-page .pictionary-back-link { position: static; justify-self: start; }
+.pictionary-creator-page .pictionary-compact-header h1 { font-size: clamp(28px, 3.5vw, 40px); }
+.pictionary-creator-page .pictionary-builder { width: min(840px, 100%); }
+.pictionary-creator-page .pictionary-builder-panel { border-radius: 22px; }
+.pictionary-creator-page .pictionary-builder-index { display: grid; place-items: center; height: 28px; border-radius: 9px; background: var(--creator-accent-soft); color: var(--creator-accent); }
+.pictionary-creator-page .pictionary-visibility-toggle button.selected { background: var(--creator-accent); }
+.pictionary-creator-page .pictionary-tag-chip { background: var(--creator-accent-soft); color: var(--creator-accent); }
+.pictionary-creator-page .pictionary-builder-save { min-height: 52px; border: 0; border-radius: 999px; background: linear-gradient(180deg, #8065ed, #6544dc); color: #fff; box-shadow: 0 8px 18px rgba(109, 79, 227, 0.28); font-family: inherit; font-size: 16px; font-weight: 850; }
+
+/* Bingo's creator is inline on its menu, but follows the same card language. */
+.bingo-custom-builder {
+  --creator-line: #ebe7dc;
+  --creator-card: rgba(255, 255, 255, 0.94);
+  --creator-shadow: 0 12px 32px rgba(20, 30, 70, 0.09);
+  border-radius: 22px;
+}
+.bingo-custom-builder-copy .bingo-kicker { color: #6d4fe3; }
+.bingo-custom-builder-copy h2 { color: #101b4c; }
+.bingo-custom-builder .bingo-custom-item-index { display: grid; place-items: center; height: 28px; border-radius: 9px; background: #f1ecfe; color: #6d4fe3; }
+.bingo-custom-builder .bingo-custom-actions button[type="submit"] { background: linear-gradient(180deg, #8065ed, #6544dc); box-shadow: 0 8px 18px rgba(109, 79, 227, 0.24); }
+
+@media (max-width: 760px) {
+  .creator-page { padding: 18px 13px 64px; }
+  .creator-header,
+  .creator-page.feud-builder-page .feud-builder-header,
+  .pictionary-creator-page .pictionary-compact-header {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .creator-header-copy,
+  .creator-page.feud-builder-page .feud-builder-header > div,
+  .pictionary-creator-page .pictionary-compact-header > div {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding: 4px 44px;
+  }
+
+  .creator-back,
+  .creator-page.feud-builder-page .feud-builder-header .feud-back,
+  .pictionary-creator-page .pictionary-back-link { grid-column: 1; grid-row: 2; justify-self: start; }
+
+  .creator-save--compact,
+  .creator-page.feud-builder-page .feud-builder-header .feud-primary-button { grid-column: 2; grid-row: 2; justify-self: end; }
+
+  .gtp-builder-settings { grid-template-columns: 1fr; }
+  .gtp-builder-thumbnail { width: min(250px, 100%); justify-self: center; }
+  .creator-footer { align-items: stretch; flex-direction: column; }
+  .creator-footer .creator-save { width: 100%; }
+  .gtp-builder-price-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .creator-save--compact { min-width: 0; padding: 0 15px; font-size: 12px; }
+  .creator-header-copy h1 { font-size: 28px; }
+  .pictionary-creator-page .pictionary-builder-row { grid-template-columns: 28px minmax(0, 1fr) auto; }
+  .pictionary-creator-page .pictionary-builder-media-actions { grid-column: 2; justify-self: start; }
+  .pictionary-creator-page .pictionary-builder-remove { grid-column: 3; grid-row: 1 / span 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .creator-page *,
+  .bingo-custom-builder * { scroll-behavior: auto !important; transition: none !important; }
+}

@@ -1,0 +1,463 @@
+.musical-page {
+  width: 100%;
+  min-height: calc(100vh - 84px);
+  padding: 22px 20px 42px;
+  color: #111827;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.musical-topbar {
+  width: min(1180px, 100%);
+  margin: 0 auto 20px;
+  display: grid;
+  grid-template-columns: 132px 1fr 132px;
+  align-items: center;
+  gap: 16px;
+}
+
+.musical-title-lockup {
+  text-align: center;
+}
+
+.musical-title-lockup p {
+  margin: 0 0 4px;
+  color: #164e63;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.musical-title-lockup h1 {
+  margin: 0;
+  color: #ffeb00;
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-size: clamp(38px, 6.8vw, 76px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0;
+  text-shadow: 4px 4px 0 #111827, -2px -2px 0 #111827, 2px -2px 0 #111827, -2px 2px 0 #111827, 6px 6px 16px rgba(15, 23, 42, 0.34);
+}
+
+.musical-button,
+.musical-start-button,
+.musical-count-row button {
+  border: 3px solid #111827;
+  color: #111827;
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 rgba(17, 24, 39, 0.3);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.musical-button:hover,
+.musical-start-button:hover,
+.musical-count-row button:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 6px 0 rgba(17, 24, 39, 0.28);
+}
+
+.musical-button {
+  min-height: 48px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  font-size: 20px;
+}
+
+.musical-button-yellow,
+.musical-start-button {
+  background: #ffeb00;
+}
+
+.musical-setup {
+  min-height: 64vh;
+  display: grid;
+  place-items: center;
+}
+
+.musical-setup-panel {
+  width: min(620px, 100%);
+  padding: 28px;
+  border: 4px solid #111827;
+  border-radius: 18px;
+  background: #fffdf5;
+  box-shadow: 8px 8px 0 rgba(17, 24, 39, 0.22);
+}
+
+.musical-setup-panel label {
+  display: block;
+  margin-bottom: 12px;
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.musical-count-row {
+  display: grid;
+  grid-template-columns: 72px 1fr 72px;
+  gap: 10px;
+}
+
+.musical-count-row button {
+  min-height: 64px;
+  border-radius: 14px;
+  background: #22c55e;
+  font-size: 38px;
+  line-height: 1;
+}
+
+.musical-count-row input {
+  width: 100%;
+  min-width: 0;
+  height: 64px;
+  padding: 0 16px;
+  border: 3px solid #111827;
+  border-radius: 14px;
+  background: #e0f2fe;
+  color: #111827;
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-size: 38px;
+  text-align: center;
+}
+
+.musical-setup-note {
+  margin: 14px 0 24px;
+  color: #334155;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.musical-start-button {
+  width: 100%;
+  min-height: 62px;
+  border-radius: 14px;
+  font-size: 30px;
+}
+
+.musical-game {
+  width: min(1220px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.musical-stage,
+.musical-control-panel {
+  border: 4px solid #111827;
+  border-radius: 18px;
+  background: #f8fbff;
+  box-shadow: 7px 7px 0 rgba(17, 24, 39, 0.24);
+}
+
+.musical-stage {
+  min-height: 650px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.musical-stage-labels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.musical-stage-labels span {
+  min-height: 38px;
+  display: grid;
+  place-items: center;
+  border: 3px solid #111827;
+  border-radius: 12px;
+  background: #fff7ad;
+  color: #111827;
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-size: 22px;
+}
+
+.musical-arena {
+  --path-radius: min(35vw, 258px);
+  --chair-radius: min(22vw, 164px);
+  position: relative;
+  flex: 1;
+  min-height: 560px;
+  overflow: hidden;
+  border: 3px dashed rgba(17, 24, 39, 0.28);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at center, #fff7ad 0 30%, transparent 30%),
+    radial-gradient(circle at center, transparent 0 55%, rgba(125, 211, 252, 0.45) 56% 100%),
+    linear-gradient(180deg, #ecfeff, #dcfce7);
+}
+
+.musical-center-disc {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(126px, 20vw, 190px);
+  height: clamp(126px, 20vw, 190px);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  border: 5px solid #111827;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -50%);
+  box-shadow: 6px 6px 0 rgba(17, 24, 39, 0.18);
+  z-index: 5;
+}
+
+.musical-center-disc strong,
+.musical-center-disc span {
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  letter-spacing: 0;
+}
+
+.musical-center-disc strong {
+  font-size: clamp(30px, 4vw, 48px);
+}
+
+.musical-center-disc span {
+  color: #475569;
+  font-size: clamp(18px, 2.4vw, 26px);
+}
+
+.musical-chair-position,
+.musical-student-position {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform-origin: 0 0;
+}
+
+.musical-chair-position {
+  transform: rotate(var(--angle)) translateX(var(--chair-radius));
+}
+
+.musical-chair {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  transform: translate(-35px, -35px);
+}
+
+.musical-chair::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 4px;
+  width: 52px;
+  height: 42px;
+  border: 4px solid #111827;
+  border-radius: 12px;
+  background: var(--chair-color);
+}
+
+.musical-chair::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 42px;
+  width: 38px;
+  height: 22px;
+  border-left: 4px solid #111827;
+  border-right: 4px solid #111827;
+  border-bottom: 4px solid #111827;
+}
+
+.musical-student-position {
+  transform: rotate(var(--angle)) translateX(var(--path-radius));
+  transition: opacity 0.28s ease, transform 0.36s ease;
+}
+
+.musical-stage.is-running .musical-student-position {
+  animation: musicalOrbit 2.9s linear infinite;
+}
+
+.musical-student {
+  width: 72px;
+  height: 92px;
+  display: grid;
+  justify-items: center;
+  transform: translate(-36px, -46px) rotate(calc(-1 * var(--angle)));
+}
+
+.musical-stage.is-running .musical-student {
+  animation: musicalCounterOrbit 2.9s linear infinite, musicalBob 0.48s ease-in-out infinite alternate;
+}
+
+.musical-student-head {
+  width: 38px;
+  height: 38px;
+  border: 4px solid #111827;
+  border-radius: 50%;
+  background: #fde68a;
+}
+
+.musical-student-body {
+  width: 56px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  margin-top: -2px;
+  border: 4px solid #111827;
+  border-radius: 18px 18px 12px 12px;
+  background: var(--student-color);
+  color: #ffffff;
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-size: 26px;
+  text-shadow: 2px 2px 0 #111827;
+}
+
+.musical-student-position.is-seated {
+  transform: rotate(var(--angle)) translateX(var(--chair-radius));
+}
+
+.musical-student-position.is-eliminated {
+  opacity: 0.55;
+  transform: translate(min(33vw, 300px), min(26vw, 230px)) scale(0.82);
+}
+
+.musical-student-position.is-eliminated .musical-student-body {
+  background: #64748b;
+}
+
+.musical-student-position.is-winner {
+  transform: translate(-36px, -210px) scale(1.28);
+}
+
+.musical-game-stopped .musical-center-disc {
+  background: #fee2e2;
+}
+
+.musical-game-finished .musical-center-disc {
+  background: #dcfce7;
+}
+
+.musical-control-panel {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.musical-status {
+  min-height: 140px;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #0f172a;
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-size: clamp(26px, 3.5vw, 42px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.musical-action-stack {
+  display: grid;
+  gap: 12px;
+}
+
+@keyframes musicalOrbit {
+  from {
+    transform: rotate(var(--angle)) translateX(var(--path-radius));
+  }
+  to {
+    transform: rotate(calc(var(--angle) + 360deg)) translateX(var(--path-radius));
+  }
+}
+
+@keyframes musicalCounterOrbit {
+  from {
+    transform: translate(-36px, -46px) rotate(calc(-1 * var(--angle)));
+  }
+  to {
+    transform: translate(-36px, -46px) rotate(calc(-1 * (var(--angle) + 360deg)));
+  }
+}
+
+@keyframes musicalBob {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: -8px;
+  }
+}
+
+@media (max-width: 940px) {
+  .musical-topbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .musical-title-lockup {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .musical-game {
+    grid-template-columns: 1fr;
+  }
+
+  .musical-stage {
+    min-height: 590px;
+  }
+
+  .musical-control-panel {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 620px) {
+  .musical-page {
+    padding: 18px 14px 34px;
+  }
+
+  .musical-topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .musical-count-row {
+    grid-template-columns: 58px 1fr 58px;
+  }
+
+  .musical-stage-labels {
+    grid-template-columns: 1fr;
+  }
+
+  .musical-arena {
+    --path-radius: min(34vw, 160px);
+    --chair-radius: min(22vw, 106px);
+    min-height: 430px;
+  }
+
+  .musical-student {
+    transform: translate(-30px, -40px) rotate(calc(-1 * var(--angle)));
+    width: 60px;
+    height: 80px;
+  }
+
+  .musical-student-head {
+    width: 32px;
+    height: 32px;
+  }
+
+  .musical-student-body {
+    width: 48px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .musical-chair {
+    transform: translate(-30px, -30px) scale(0.82);
+  }
+}

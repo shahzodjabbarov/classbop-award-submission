@@ -1,0 +1,513 @@
+.cb-loader {
+  width: 100%;
+  min-height: 52vh;
+  display: grid;
+  place-items: center;
+  padding: 42px 18px;
+  color: #111827;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cb-loader--game {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #7dd8fb 0%, #b8ecff 56%, #fff2bf 100%);
+}
+
+.cb-loader--decks {
+  min-height: auto;
+  display: block;
+  padding: 0;
+}
+
+.cb-loader__deck-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+  width: 100%;
+}
+
+.cb-loader__create-card,
+.cb-loader__real-deck-card {
+  min-height: 280px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04), 0 12px 28px rgba(15, 23, 42, 0.10);
+}
+
+.cb-loader__create-card {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 24px;
+  border: 2px dashed #e2c74e;
+  background: rgba(220, 244, 255, 0.68);
+}
+
+.cb-loader__plus-dot {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffeb00;
+  color: #111827;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cb-loader__create-line {
+  width: 210px;
+  height: 22px;
+  border-radius: 999px;
+}
+
+.cb-loader__real-deck-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.cb-loader__deck-thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.cb-loader__share-dot,
+.cb-loader__currency-chip {
+  position: absolute;
+  top: 12px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.14);
+}
+
+.cb-loader__share-dot {
+  left: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.cb-loader__currency-chip {
+  right: 12px;
+  width: 76px;
+  height: 28px;
+  border-radius: 999px;
+}
+
+.cb-loader__real-deck-copy {
+  display: grid;
+  gap: 11px;
+  padding: 16px 18px 18px;
+}
+
+.cb-loader__real-deck-title,
+.cb-loader__real-deck-meta {
+  display: block;
+  border-radius: 999px;
+}
+
+.cb-loader__real-deck-title {
+  width: 82%;
+  height: 24px;
+}
+
+.cb-loader__real-deck-meta {
+  width: 58%;
+  height: 15px;
+}
+
+.cb-loader__sky,
+.cb-loader__cloud {
+  position: absolute;
+  pointer-events: none;
+}
+
+.cb-loader__sky {
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.24) 2px, transparent 2px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.24) 2px, transparent 2px);
+  background-size: 54px 54px;
+  opacity: 0.42;
+}
+
+.cb-loader__cloud {
+  width: 190px;
+  height: 54px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  filter: blur(0.2px);
+  animation: cbFloat 8s ease-in-out infinite;
+}
+
+.cb-loader__cloud::before,
+.cb-loader__cloud::after {
+  content: "";
+  position: absolute;
+  bottom: 18px;
+  border-radius: 999px;
+  background: inherit;
+}
+
+.cb-loader__cloud::before {
+  left: 36px;
+  width: 72px;
+  height: 72px;
+}
+
+.cb-loader__cloud::after {
+  right: 38px;
+  width: 88px;
+  height: 88px;
+}
+
+.cb-loader__cloud--one {
+  top: 13%;
+  left: 7%;
+}
+
+.cb-loader__cloud--two {
+  right: 8%;
+  bottom: 18%;
+  transform: scale(0.78);
+  animation-delay: -3s;
+}
+
+.cb-loader__panel,
+.cb-loader__game-stage {
+  width: min(1040px, 100%);
+  position: relative;
+}
+
+.cb-loader__panel {
+  padding: 24px;
+  border: 3px solid rgba(17, 24, 39, 0.9);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 8px 8px 0 rgba(17, 24, 39, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.cb-loader--route .cb-loader__panel {
+  width: min(760px, 100%);
+}
+
+.cb-loader__header {
+  display: grid;
+  grid-template-columns: 72px 1fr 118px;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.cb-loader__avatar,
+.cb-loader__circle {
+  border-radius: 50%;
+}
+
+.cb-loader__avatar {
+  width: 72px;
+  height: 72px;
+  border: 3px solid #111827;
+}
+
+.cb-loader__heading,
+.cb-loader__deck-copy,
+.cb-loader__body-lines {
+  display: grid;
+  gap: 10px;
+}
+
+.cb-loader__heading-line,
+.cb-loader__button,
+.cb-loader__deck-title,
+.cb-loader__deck-meta,
+.cb-loader__body-line,
+.cb-loader__title-line,
+.cb-loader__range-box,
+.cb-loader__question-line,
+.cb-loader__score-text,
+.cb-loader__pill {
+  display: block;
+  border-radius: 999px;
+}
+
+.cb-loader__heading-line {
+  width: 64%;
+  height: 22px;
+}
+
+.cb-loader__heading-line--short {
+  width: 38%;
+  height: 14px;
+}
+
+.cb-loader__button {
+  width: 118px;
+  height: 44px;
+  border: 3px solid #111827;
+}
+
+.cb-loader__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cb-loader__deck-card {
+  overflow: hidden;
+  border: 3px solid #111827;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 4px 4px 0 rgba(17, 24, 39, 0.18);
+}
+
+.cb-loader__deck-image {
+  height: 148px;
+  border-bottom: 3px solid #111827;
+}
+
+.cb-loader__deck-copy {
+  padding: 14px;
+}
+
+.cb-loader__deck-title {
+  width: 82%;
+  height: 18px;
+}
+
+.cb-loader__deck-meta {
+  width: 56%;
+  height: 12px;
+}
+
+.cb-loader__caption {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  margin-top: 22px;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.cb-loader__caption span {
+  font-size: 18px;
+}
+
+.cb-loader__caption small {
+  color: #475569;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.cb-loader__game-stage {
+  aspect-ratio: 16 / 9;
+  max-height: min(82vh, 720px);
+  border: 4px solid #111827;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.8), transparent 22%),
+    linear-gradient(180deg, rgba(125, 216, 251, 0.96), rgba(255, 244, 195, 0.96));
+  box-shadow: 12px 12px 0 rgba(17, 24, 39, 0.18);
+  overflow: hidden;
+  padding: clamp(18px, 3vw, 34px);
+}
+
+.cb-loader__game-controls,
+.cb-loader__score-row,
+.cb-loader__game-grid {
+  position: relative;
+  z-index: 2;
+}
+
+.cb-loader__game-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cb-loader__pill {
+  width: 150px;
+  height: 44px;
+  border: 3px solid #111827;
+}
+
+.cb-loader__circle {
+  width: 54px;
+  height: 54px;
+  border: 3px solid #ffffff;
+}
+
+.cb-loader__score-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px auto 0;
+  width: min(680px, 78%);
+}
+
+.cb-loader__score {
+  height: 52px;
+  display: grid;
+  grid-template-columns: 34px 1fr 34px;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 3px solid #ffffff;
+  border-radius: 16px;
+  background: var(--team-color);
+  box-shadow: 4px 4px 0 rgba(17, 24, 39, 0.22);
+}
+
+.cb-loader__score-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.cb-loader__score-text {
+  height: 18px;
+}
+
+.cb-loader__game-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.06fr 1fr;
+  align-items: center;
+  gap: clamp(14px, 3vw, 34px);
+  height: calc(100% - 162px);
+}
+
+.cb-loader__copy-stack,
+.cb-loader__price-stack {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+
+.cb-loader__title-line {
+  width: min(240px, 100%);
+  height: 42px;
+}
+
+.cb-loader__range-box {
+  width: min(190px, 90%);
+  height: 74px;
+  border: 3px solid #111827;
+  border-radius: 16px;
+}
+
+.cb-loader__feature-card {
+  overflow: hidden;
+  border: 4px solid #111827;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 7px 7px 0 rgba(17, 24, 39, 0.2);
+}
+
+.cb-loader__image-frame {
+  aspect-ratio: 4 / 3;
+  border-bottom: 4px solid #111827;
+}
+
+.cb-loader__body-lines {
+  padding: 18px;
+}
+
+.cb-loader__body-line {
+  height: 16px;
+}
+
+.cb-loader__body-line--short {
+  width: 68%;
+}
+
+.cb-loader__question-line {
+  width: 190px;
+  height: 38px;
+}
+
+.cb-loader__price-sign {
+  width: min(280px, 100%);
+  height: 132px;
+  display: grid;
+  place-items: center;
+  border: 4px solid #111827;
+  border-radius: 18px;
+  color: rgba(17, 24, 39, 0.35);
+  font-size: clamp(42px, 6vw, 74px);
+  font-weight: 1000;
+}
+
+.cb-shimmer {
+  background: linear-gradient(100deg, #e2e8f0 0%, #f8fafc 38%, #cbd5e1 76%);
+  background-size: 220% 100%;
+  animation: cbShimmer 1.35s ease-in-out infinite;
+}
+
+@keyframes cbShimmer {
+  0% { background-position: 120% 0; }
+  100% { background-position: -120% 0; }
+}
+
+@keyframes cbFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -12px; }
+}
+
+@media (max-width: 760px) {
+  .cb-loader__header {
+    grid-template-columns: 54px 1fr;
+  }
+
+  .cb-loader__button {
+    display: none;
+  }
+
+  .cb-loader__avatar {
+    width: 54px;
+    height: 54px;
+  }
+
+  .cb-loader__grid,
+  .cb-loader__deck-grid,
+  .cb-loader__game-grid,
+  .cb-loader__score-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cb-loader__grid .cb-loader__deck-card:nth-child(n + 4),
+  .cb-loader__copy-stack,
+  .cb-loader__price-stack {
+    display: none;
+  }
+
+  .cb-loader__game-stage {
+    aspect-ratio: auto;
+    min-height: 72vh;
+  }
+
+  .cb-loader__score-row {
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  .cb-loader__score-row .cb-loader__score:nth-child(n + 3) {
+    display: none;
+  }
+
+  .cb-loader__game-grid {
+    height: auto;
+    margin-top: 24px;
+  }
+}

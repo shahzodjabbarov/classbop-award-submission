@@ -1,0 +1,172 @@
+.bop-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #faf7f0;
+}
+
+/* Silhouettes traced from the reference comp (1670 x 941). Each one is closed
+   along the edge it sits on, so it stays flush to the viewport at any size;
+   preserveAspectRatio="none" lets the width/height below set its proportions.
+   Sizes are the reference's own percentages of that 1670 x 941 frame. */
+.bop-blob {
+  position: absolute;
+  display: block;
+}
+
+.bop-blob-yellow {
+  top: 0;
+  left: 0;
+  width: 25.4vw;
+  height: 20.4vh;
+  min-width: 260px;
+  min-height: 150px;
+  fill: #fbe6ac;
+}
+
+/* Upper-right, flush to the right edge. */
+.bop-blob-mint {
+  top: 8vh;
+  right: 0;
+  width: 17.2vw;
+  height: 53.1vh;
+  min-width: 175px;
+  min-height: 330px;
+  fill: #ddefe1;
+}
+
+/* Lower-left, flush to the left and bottom edges. */
+.bop-blob-lilac {
+  bottom: 0;
+  left: 0;
+  width: 14.5vw;
+  height: 36.2vh;
+  min-width: 150px;
+  min-height: 220px;
+  fill: #e6def8;
+}
+
+.bop-blob-lilac-low {
+  right: 0;
+  bottom: 0;
+  width: 13.8vw;
+  height: 16vh;
+  min-width: 140px;
+  min-height: 100px;
+  fill: #e8e1fa;
+}
+
+.bop-mark {
+  position: absolute;
+  display: block;
+}
+
+.bop-squiggle,
+.bop-cloud {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Marks live in the gutter beside the 1040px card column. The calc() keeps them
+   clear of the cards on wide screens; the max() stops them sliding off-screen. */
+.bop-dots {
+  top: 23vh;
+  left: max(1.5vw, calc(50% - 645px));
+  width: clamp(74px, 6.4vw, 116px);
+  color: #c7c0ec;
+  opacity: 0.75;
+}
+
+.bop-squiggle-one {
+  top: 45vh;
+  left: max(3vw, calc(50% - 620px));
+  width: clamp(58px, 4.8vw, 88px);
+  color: #b7d6f4;
+  stroke-width: 7;
+  opacity: 0.9;
+}
+
+.bop-squiggle-two {
+  top: 79vh;
+  left: max(3vw, calc(50% - 615px));
+  width: clamp(58px, 4.8vw, 88px);
+  color: #c8bdf0;
+  stroke-width: 7;
+  opacity: 0.9;
+}
+
+.bop-squiggle-three {
+  top: 71vh;
+  right: max(3vw, calc(50% - 620px));
+  width: clamp(58px, 4.8vw, 88px);
+  color: #c8bdf0;
+  stroke-width: 7;
+  opacity: 0.9;
+}
+
+.bop-cloud-one {
+  top: 41vh;
+  right: max(2vw, calc(50% - 645px));
+  width: clamp(64px, 5.6vw, 104px);
+  color: #c2dbf3;
+  stroke-width: 4;
+  opacity: 0.9;
+}
+
+.bop-cloud-two {
+  top: 86vh;
+  right: max(2vw, calc(50% - 630px));
+  width: clamp(52px, 4.4vw, 82px);
+  color: #c2dbf3;
+  stroke-width: 4;
+  opacity: 0.75;
+}
+
+.bop-sparkle-one {
+  top: 56vh;
+  right: max(4vw, calc(50% - 585px));
+  width: clamp(16px, 1.3vw, 24px);
+  color: #ffd25e;
+}
+
+.bop-sparkle-two {
+  top: 16vh;
+  left: max(4vw, calc(50% - 580px));
+  width: clamp(13px, 1.05vw, 19px);
+  color: #cdbff3;
+}
+
+.bop-sparkle-three {
+  top: 93vh;
+  left: max(6vw, calc(50% - 565px));
+  width: clamp(14px, 1.15vw, 21px);
+  color: #ffd25e;
+  opacity: 0.85;
+}
+
+/* Below this the gutters are too narrow to hold the marks without crowding the
+   cards, so only the corner blobs survive. */
+@media (max-width: 1160px) {
+  .bop-dots,
+  .bop-squiggle-one,
+  .bop-squiggle-two,
+  .bop-squiggle-three,
+  .bop-cloud-one,
+  .bop-cloud-two,
+  .bop-sparkle-one,
+  .bop-sparkle-two,
+  .bop-sparkle-three {
+    display: none;
+  }
+
+  .bop-blob-yellow,
+  .bop-blob-lilac,
+  .bop-blob-mint,
+  .bop-blob-lilac-low {
+    opacity: 0.55;
+  }
+}

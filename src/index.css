@@ -1,0 +1,29 @@
+/* ========================================================================= */
+/* 🛠️ GLOBAL RESET & DARK MODE BASE 🛠️ */
+/* ========================================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #05050A; /* Deep void background */
+  color: #FFFFFF; /* Global text color */
+  -webkit-font-smoothing: antialiased;
+}
+
+input::placeholder {
+  color: #7A7A7A;
+  font-weight: 650;
+  opacity: 1;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

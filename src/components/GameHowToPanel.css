@@ -1,0 +1,193 @@
+.game-how-to {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 22px;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.game-how-to-toggle-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.game-how-to--panel-only {
+  margin-bottom: 20px;
+}
+
+.game-how-to--panel-only .game-how-to-panel {
+  margin-top: 0;
+  transform-origin: top center;
+}
+
+.game-how-to-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 8px 10px;
+  border: 3px solid #111;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  box-shadow: 3px 3px 0 #111;
+  font-family: "Lilita One", cursive;
+  font-size: 17px;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.game-how-to-toggle:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #111;
+}
+
+.game-how-to-toggle:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #111;
+}
+
+.game-how-to-toggle.is-open {
+  background: #ffeb00;
+}
+
+.game-how-to-toggle-icon {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #111;
+  border-radius: 50%;
+  background: #ffeb00;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.game-how-to-toggle.is-open .game-how-to-toggle-icon {
+  background: #fff;
+}
+
+.game-how-to-toggle-chevron {
+  font-size: 14px;
+  transition: transform 0.15s ease;
+}
+
+.game-how-to-toggle-chevron.is-open {
+  transform: rotate(180deg);
+}
+
+.game-how-to-panel {
+  margin-top: 12px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 22px;
+  align-items: stretch;
+  overflow: hidden;
+  border: 3px solid #111;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 6px 6px 0 #111, 0 18px 38px rgba(15, 23, 42, 0.14);
+  box-sizing: border-box;
+  color: #111;
+  transform-origin: top right;
+  animation: game-how-to-drop 0.18s ease-out;
+}
+
+@keyframes game-how-to-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.game-how-to-poster {
+  min-height: 200px;
+  overflow: hidden;
+  border: 3px solid #111;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 3px 3px 0 rgba(17, 17, 17, 0.35);
+}
+
+.game-how-to-poster img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.game-how-to-body {
+  padding: 6px 8px 6px 0;
+  color: #111;
+}
+
+.game-how-to-eyebrow {
+  margin: 0 0 6px;
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid #111;
+  border-radius: 999px;
+  background: #111;
+  color: #ffeb00;
+  font-family: "Lilita One", cursive;
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.game-how-to-body h2 {
+  margin: 6px 0 10px;
+  color: #111827;
+  font-family: "Lilita One", "Arial Black", Impact, sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.game-how-to-text {
+  margin: 0 0 10px;
+  color: rgba(15, 23, 42, 0.78);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.game-how-to-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.game-how-to-tags span {
+  padding: 6px 11px;
+  border: 2px solid #111;
+  border-radius: 999px;
+  background: #ffeb00;
+  color: #111;
+  box-shadow: 2px 2px 0 #111;
+  font-family: "Lilita One", cursive;
+  font-size: 14px;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .game-how-to-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .game-how-to-poster {
+    max-height: 200px;
+  }
+
+  .game-how-to-body {
+    padding-right: 0;
+  }
+}

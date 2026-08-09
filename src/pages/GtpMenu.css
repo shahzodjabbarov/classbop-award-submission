@@ -1,0 +1,278 @@
+.gtp-menu-page {
+  width: 100%;
+  min-height: calc(100vh - 62px);
+  padding: 28px clamp(24px, 3vw, 40px) 80px;
+  box-sizing: border-box;
+  background: transparent;
+  color: #111827;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.gtp-menu-page .quiz-menu-shell {
+  width: min(100%, 1840px);
+  margin: 0 auto;
+}
+
+.gtp-menu-page .quiz-menu-tools {
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) 144px 154px 220px;
+  gap: 12px;
+  align-items: stretch;
+  margin: 0 0 14px;
+  padding: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.035);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.gtp-menu-page .quiz-menu-search,
+.gtp-menu-page .quiz-menu-pill,
+.gtp-menu-page .quiz-create-card {
+  min-height: 62px;
+  border: 1px solid #dcecf8;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 3px 10px rgba(14, 116, 144, 0.035);
+  box-sizing: border-box;
+}
+
+.gtp-menu-page .quiz-menu-search {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 0 22px;
+  color: #64748b;
+}
+
+.gtp-menu-page .quiz-menu-search svg {
+  width: 23px;
+  height: 23px;
+  flex: 0 0 auto;
+  color: #64748b;
+}
+
+.gtp-menu-page .quiz-menu-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #0b1735;
+  font: 600 16px/1 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.gtp-menu-page .quiz-menu-search input::placeholder {
+  color: #9aa8c0;
+}
+
+.gtp-menu-page .quiz-menu-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  color: #101b35;
+  cursor: pointer;
+  font: 650 14px/1 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.gtp-menu-page .quiz-menu-pill svg {
+  width: 22px;
+  height: 22px;
+  color: #5b6a86;
+}
+
+.gtp-menu-page .quiz-menu-pill.is-active {
+  border-color: rgba(93, 72, 232, 0.35);
+  color: #4f35e8;
+  box-shadow: 0 0 0 3px rgba(93, 72, 232, 0.07);
+}
+
+.gtp-menu-page .quiz-menu-pill.is-active svg {
+  color: #4f35e8;
+}
+
+.gtp-menu-page .quiz-menu-pill:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(30, 41, 59, 0.08);
+}
+
+.gtp-menu-page .quiz-create-card {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  transition: transform 0.18s ease, filter 0.18s ease;
+  gap: 11px;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  height: 62px;
+  min-height: 62px;
+  padding: 8px 14px;
+  border: 1px solid #e9edf4;
+  background: #fff9d6;
+  color: #111827;
+  font: inherit;
+  text-align: left;
+  box-shadow: 0 4px 0 #ffeb00, 0 8px 16px rgba(15, 23, 42, 0.12);
+}
+
+.gtp-menu-page .quiz-create-card span.quiz-create-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(17, 24, 39, 0.56);
+  border-radius: 10px;
+  background: #fff;
+  color: #111827;
+  font-size: 0;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+  flex: 0 0 auto;
+  box-sizing: border-box;
+}
+
+.gtp-menu-page .quiz-create-card span.quiz-create-icon svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+}
+
+.gtp-menu-page .quiz-create-card span.quiz-action-copy {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #111827;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.gtp-menu-page .quiz-create-card .quiz-action-copy strong {
+  display: block;
+  margin: 0;
+  color: #111827;
+  font: 800 17px/1 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  white-space: nowrap;
+}
+
+.gtp-menu-page .quiz-create-card .quiz-action-copy em {
+  display: block;
+  margin-top: 5px;
+  color: #111827;
+  font: 650 11px/1 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+.gtp-menu-page .quiz-create-card::after {
+  content: none;
+}
+
+/* Price decks use a receipt-and-cash treatment unique to this menu. */
+.gtp-menu-page .gtp-money-card {
+  border-color: #9ccfb4;
+  background: #effbf4;
+  box-shadow: 4px 4px 0 #159456, 0 10px 20px rgba(15, 118, 70, 0.16);
+}
+
+.gtp-menu-page .gtp-money-card .deck-card-media {
+  border: 1px solid rgba(21, 148, 86, 0.2);
+  background: linear-gradient(145deg, #dcfce7 0%, #f4fff7 100%);
+  box-sizing: border-box;
+}
+
+.gtp-menu-page .gtp-money-card .deck-card-copy {
+  position: relative;
+  border-top: 2px dashed rgba(21, 148, 86, 0.32);
+  background:
+    linear-gradient(90deg, rgba(21, 148, 86, 0.055) 1px, transparent 1px) 0 0 / 16px 16px,
+    #f7fff9;
+}
+
+.gtp-menu-page .gtp-money-card .deck-card-title {
+  color: #0c5131;
+  font-weight: 760;
+}
+
+.gtp-menu-page .gtp-money-card .deck-card-text {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 25px;
+  align-items: center;
+  margin-bottom: 11px;
+  border: 1px solid rgba(21, 148, 86, 0.2);
+  border-radius: 8px;
+  background: #e8f8ee;
+  color: #17613d;
+  font-weight: 750;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.gtp-menu-page .gtp-money-card .deck-card-chip {
+  border-color: rgba(21, 148, 86, 0.18);
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.gtp-money-mark {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  z-index: 3;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(12, 81, 49, 0.3);
+  border-radius: 10px;
+  background: rgba(236, 253, 245, 0.94);
+  box-shadow: 0 4px 11px rgba(12, 81, 49, 0.17);
+  color: #0f8a50;
+  pointer-events: none;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.gtp-money-mark svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.25;
+}
+
+@media (max-width: 1120px) {
+  .gtp-menu-page .quiz-menu-tools {
+    grid-template-columns: minmax(0, 1fr) 144px 154px 220px;
+  }
+}
+
+@media (max-width: 900px) {
+  .gtp-menu-page .quiz-menu-tools {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gtp-menu-page .quiz-menu-search {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .gtp-menu-page {
+    padding-inline: 16px;
+  }
+
+  .gtp-menu-page .quiz-menu-tools {
+    grid-template-columns: 1fr;
+  }
+}

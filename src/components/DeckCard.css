@@ -1,0 +1,280 @@
+/* Shared menu card, styled after the Quiz Bop browser cards. */
+
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--deck-columns, 5), minmax(0, 1fr));
+  gap: 10px;
+  align-items: start;
+  width: 100%;
+}
+
+.deck-masonry-grid.deck-masonry-grid {
+  grid-template-columns: repeat(var(--deck-columns, 5), minmax(0, 1fr));
+  align-items: start;
+}
+
+.deck-masonry-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.deck-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #d5dce7;
+  border-radius: 16px;
+  background: #fff;
+  color: #0b1735;
+  box-shadow: 4px 4px 0 #ffeb00, 0 8px 16px rgba(15, 23, 42, 0.12);
+  cursor: pointer;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: left;
+  text-decoration: none;
+  transition: transform 0.18s ease;
+}
+
+.deck-card:hover {
+  transform: translateY(-3px);
+}
+
+.deck-card:focus-visible {
+  outline: 3px solid rgba(79, 53, 232, 0.55);
+  outline-offset: 2px;
+}
+
+.deck-card-media {
+  position: relative;
+  width: calc(100% - 16px);
+  margin: 8px 8px 0;
+  aspect-ratio: var(--deck-media-ratio, 1.6);
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--deck-media-bg, #fffaf0);
+}
+
+.deck-card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.02) 0%, rgba(15, 23, 42, 0) 58%, rgba(255, 255, 255, 0.16) 100%);
+  pointer-events: none;
+}
+
+.deck-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  object-fit: cover;
+  object-position: center;
+  transition: filter 0.25s ease;
+}
+
+.deck-card:hover .deck-card-image {
+  filter: saturate(1.04);
+}
+
+/* The animated loop sits on top of the still while the card is hovered. */
+.deck-card-image-loop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.deck-card-emoji {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: clamp(42px, 4vw, 64px);
+  line-height: 1;
+}
+
+.deck-card-copy {
+  display: block;
+  padding: 13px 17px 14px;
+  background: #fff;
+}
+
+.deck-card-title {
+  margin: 0 0 7px;
+  color: #07122d;
+  font: 650 clamp(16px, 1vw, 22px)/1.06 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.deck-card-text {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  max-height: calc(1.35em * 3);
+  margin: 0 0 12px;
+  color: #667085;
+  font: 450 11.5px/1.35 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: left;
+}
+
+.deck-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 5px;
+  margin-top: 0;
+  color: #34415e;
+  font: 500 11px/1 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  white-space: nowrap;
+}
+
+.deck-card-chip {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 1 auto;
+  gap: 4px;
+  min-width: 0;
+  min-height: 26px;
+  padding: 0 8px;
+  border: 1px solid rgba(120, 83, 0, 0.18);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.deck-card-chip b {
+  overflow: hidden;
+  font-weight: inherit;
+  text-overflow: ellipsis;
+}
+
+.deck-card-chip i {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-left: -6px;
+  border-radius: 50%;
+  font-style: normal;
+  font-weight: 950;
+}
+
+.deck-card-chip.is-author {
+  color: #098b54;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.deck-card-chip.is-author i {
+  width: 0;
+  overflow: hidden;
+}
+
+.deck-card-chip.is-count i {
+  background: #eaf4ff;
+  color: #1870dc;
+}
+
+.deck-card-chip.is-plays i {
+  background: #fff0cb;
+  color: #f3a51d;
+}
+
+.deck-card-chip.is-level i {
+  background: #f1ecff;
+  color: #6d28d9;
+}
+
+.deck-card-fav {
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  color: #40506e;
+  font-size: 17px;
+  line-height: 1;
+  box-shadow: 0 3px 9px rgba(15, 23, 42, 0.08);
+  cursor: pointer;
+}
+
+.deck-card-fav:hover,
+.deck-card-fav.is-favorite {
+  color: #4f35e8;
+  background: #fff;
+}
+
+.deck-card-fav svg {
+  width: 16px;
+  height: 16px;
+}
+
+.deck-card-actions {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+}
+
+.deck-card-actions button {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #40506e;
+  font-size: 14px;
+  line-height: 1;
+  box-shadow: 0 3px 9px rgba(15, 23, 42, 0.12);
+  cursor: pointer;
+}
+
+.deck-card-actions button:hover {
+  background: #fff;
+  color: #4f35e8;
+}
+
+.deck-card-actions button.danger:hover {
+  color: #e11d48;
+}
+
+.deck-card-actions button svg {
+  width: 15px;
+  height: 15px;
+}
+
+@media (max-width: 1180px) {
+  .deck-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 920px) {
+  .deck-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .deck-grid {
+    grid-template-columns: 1fr;
+  }
+}
