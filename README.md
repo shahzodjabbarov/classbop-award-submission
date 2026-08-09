@@ -32,10 +32,6 @@
   <a href="#-contributing">Contributing</a>
 </p>
 
-<p align="center">
-  <img src="public/landing/hero-illustration.png" width="920" alt="Students playing a ClassBop classroom game" />
-</p>
-
 ## About ClassBop
 
 ClassBop is a lightweight classroom engagement platform built for busy teachers. Open it on a classroom monitor or projector, choose a game or activity, and start playing—without preparing another slide deck.
